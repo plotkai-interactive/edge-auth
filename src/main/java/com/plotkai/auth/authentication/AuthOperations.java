@@ -85,10 +85,6 @@ public class AuthOperations {
                     .keyID(kid.toString())
                     .build();
 
-            System.out.println(jwk.toJSONString());
-            System.out.println(jwk.toJSONObject());
-            System.out.println(jwk.toString());
-
             Map<String, List<JSONObject>> keyset = new HashMap<String, List<JSONObject>>();
             List<JSONObject> keys = new ArrayList<JSONObject>();
 

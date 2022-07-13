@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody HashMap<String, String> credentials) {
-        log.info("Login Controller.. {}", credentials);
+        log.info("Login Controller..");
         // call some real validation API with credentials
         return new ResponseEntity<>(authOperations.generateToken(), HttpStatus.OK);
     }
@@ -39,7 +39,7 @@ public class AuthController {
 
     @PostMapping("/validate")
     public ResponseEntity<Boolean> validate(@RequestBody String token) {
-        log.info("Validate token Controller..{}",token);
+        log.info("Validate token Controller..");
         return new ResponseEntity<Boolean>(authOperations.validateToken(token), HttpStatus.OK);
     }
 }

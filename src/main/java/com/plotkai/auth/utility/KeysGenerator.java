@@ -24,7 +24,6 @@ public class KeysGenerator {
             return keys;
         }
         if (keys.size() > 0) {
-            log.info("Getting keys from cache..");
             return keys;
         } else {
             keys = genrateRSAKeys();
@@ -35,7 +34,7 @@ public class KeysGenerator {
     @Cacheable
     public Map<String, Object> genrateRSAKeys() {
         try {
-            log.info("Generating Keys....");
+            log.info("Generating New Keys");
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(AuthConstants.KEYPAIR_GENERATOR_ALGORITHM);
             keyPairGenerator.initialize(2048);
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
@@ -44,7 +43,7 @@ public class KeysGenerator {
             Map<String, Object> keys = new HashMap<String, Object>();
             keys.put(AuthConstants.PRIVATE_KEY, privateKey);
             keys.put(AuthConstants.PUBLIC_KEY, publicKey);
-            log.info("Generated Keys....");
+            log.info("Keys Generated Successfully");
             return keys;
         } catch (Exception e) {
             log.error("Cannot generate RSA keys {}", e);
